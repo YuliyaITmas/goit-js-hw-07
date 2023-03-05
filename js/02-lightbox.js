@@ -3,34 +3,34 @@ import { galleryItems } from "./gallery-items.js";
 
 console.log(galleryItems);
 
-function makeGalleryCardsMarkup(gallery) {
-  return gallery
-    .map(({ preview, original, description }) => {
-      return `
-<a class="gallery__item" href="${original}">
-  <img 
-  class="gallery__image" 
-  src="${preview}" 
-  alt="${description}" />
-</a>`;
-    })
-    .join("");
-}
-
-
 // function makeGalleryCardsMarkup(gallery) {
 //   return gallery
 //     .map(({ preview, original, description }) => {
 //       return `
-// <li><a class="gallery__item" href="${original}">
+// <a class="gallery__item" href="${original}">
 //   <img 
 //   class="gallery__image" 
 //   src="${preview}" 
 //   alt="${description}" />
-// </a></li>`;
+// </a>`;
 //     })
 //     .join("");
 // }
+
+
+function makeGalleryCardsMarkup(gallery) {
+  return gallery
+    .map(({ preview, original, description }) => {
+      return `
+<li><a class="gallery__item" href="${original}">
+  <img 
+  class="gallery__image" 
+  src="${preview}" 
+  alt="${description}" />
+</a></li>`;
+    })
+    .join("");
+}
 
 
 const galleryContainer = document.querySelector(".gallery");
