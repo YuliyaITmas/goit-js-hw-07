@@ -16,22 +16,26 @@ function makeGalleryCardsMarkup(gallery) {
     })
     .join("");
 }
+
+
+// function makeGalleryCardsMarkup(gallery) {
+//   return gallery
+//     .map(({ preview, original, description }) => {
+//       return `
+// <li><a class="gallery__item" href="${original}">
+//   <img 
+//   class="gallery__image" 
+//   src="${preview}" 
+//   alt="${description}" />
+// </a></li>`;
+//     })
+//     .join("");
+// }
+
+
 const galleryContainer = document.querySelector(".gallery");
 const galleryMarkup = makeGalleryCardsMarkup(galleryItems);
 galleryContainer.insertAdjacentHTML("beforeend", galleryMarkup);
-
-
-galleryContainer.addEventListener("click", onGalleryContainerClick);
-
-function onGalleryContainerClick(event) {
-  event.preventDefault();
-
-  const isGalleryImageEl = event.target.classList.contains("gallery__image");
-  if (!isGalleryImageEl) {
-    return;
-  }
-}
- 
 
 
 let lightbox = new SimpleLightbox(".gallery a", {
